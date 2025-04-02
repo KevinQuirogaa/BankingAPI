@@ -1,3 +1,5 @@
+using BankingAPI.Modules.Banking.Infrastructure;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -6,6 +8,9 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+// Agregar la capa de infrastructura
+builder.Services.AddDependencyI(builder.Configuration);
 
 var app = builder.Build();
 
