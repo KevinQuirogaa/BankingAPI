@@ -19,6 +19,8 @@ namespace BankingAPI.Modules.Banking.Infrastructure.Data
         /// realizar las operaciones CRUD
         /// </summary>
         public DbSet<CustomerEntity> Customers {  get; set; }
+        public DbSet<AccountEntity> Accounts { get; set; }
+        public DbSet<TransactionEntity> Transactions { get; set; }
 
 
         /// <summary>
