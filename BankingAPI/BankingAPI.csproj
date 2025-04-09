@@ -16,6 +16,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\BankingAPI.Modules.Banking.Infrastructure\BankingAPI.Modules.Banking.Infrastructure.csproj" />
+    <ProjectReference Include="..\BankingAPI.Modules.Banking.Logic\BankingAPI.Modules.Banking.Logic.csproj" />
   </ItemGroup>
 
 </Project>

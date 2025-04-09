@@ -1,4 +1,5 @@
 using BankingAPI.Modules.Banking.Infrastructure;
+using BankingAPI.Modules.Banking.Logic;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -9,8 +10,9 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-// Agregar la capa de infrastructura
+// Agregar la capas del proyecto
 builder.Services.AddDependencyI(builder.Configuration);
+builder.Services.AddDependencyL();
 
 var app = builder.Build();
 
