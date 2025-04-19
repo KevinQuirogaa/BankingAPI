@@ -10,7 +10,7 @@ namespace BankingAPI.Modules.Infrastructure.Entities
         public int Id { get; set; }
 
         [Required, ForeignKey("Account")]
-        public int AccountId { get; set; }
+        public string AccountNumber { get; set; }
 
         [Required]
         public DateTime TransactionDate { get; set; }
@@ -22,7 +22,7 @@ namespace BankingAPI.Modules.Infrastructure.Entities
         public string TransactionType { get; set; }
 
 
-        // Relacion de AccountId a AccountEntity Id
+        // Relacion de AccountNumber a AccountEntity AccountNumber
         public AccountEntity Account { get; set; }
     }
 }

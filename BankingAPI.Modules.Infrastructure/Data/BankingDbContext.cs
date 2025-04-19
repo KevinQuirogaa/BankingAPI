@@ -20,6 +20,8 @@ namespace BankingAPI.Modules.Infrastructure.Data
         /// Puede interactuar con la DB utilizando LINQ para realizar un CRUD
         /// </summary>
         public DbSet<CustomerEntity> Customers { get; set; }
+        public DbSet<AccountEntity> Accounts { get; set; }
+        public DbSet<TransactionEntity> Transactions { get; set; }
 
 
         /// <summary>
@@ -46,7 +48,7 @@ namespace BankingAPI.Modules.Infrastructure.Data
 
 
 
-            /*   Entidad AccountEntity    */
+            /*   Entidad AccountEntity  */ 
 
             // Indica que el campo AccountNumber de la entidad AccountEntity
             // va a ser un valor unico
@@ -54,14 +56,27 @@ namespace BankingAPI.Modules.Infrastructure.Data
                 .HasIndex(c => c.AccountNumber)
                 .IsUnique();
 
+            // Indica que el campo Balance de la entidad AccountEntity
+            // va tener una presicion de 8 , 2
+            modelBuilder.Entity<AccountEntity>()
+                .Property(c => c.Balance)
+                .HasPrecision(18, 2);
 
-            /*   Entidad TransactionEntity    */
+
+            /*   Entidad TransactionEntity  */
 
             // Indica que el campo TransactionDate de la entidad TransactionEntity
             // va a tener un valor por defecto
             modelBuilder.Entity<TransactionEntity>()
                 .Property(c => c.TransactionDate)
                 .HasDefaultValueSql("GETDATE()");
+
+            // Indica que el campo Amount de la entidad TransactionEntity
+            // va tener una presicion de 8 , 2
+            modelBuilder.Entity<TransactionEntity>()
+                .Property(c => c.Amount)
+                .HasPrecision(18, 2);
+
         }
     }
 }
