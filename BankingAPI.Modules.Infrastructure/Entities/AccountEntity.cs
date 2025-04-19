@@ -6,14 +6,12 @@ namespace BankingAPI.Modules.Infrastructure.Entities
     [Table("Accounts")]
     public class AccountEntity
     {
-        [Key]
-        public int Id { get; set; }
+        [Key, Required]
+        public string AccountNumber { get; set; }
 
         [Required, ForeignKey("Customer")]
         public int CustomerId { get; set; }
 
-        [Required]
-        public string AccountNumber { get; set; }
 
         [Required]
         public string AccountType { get; set; }
